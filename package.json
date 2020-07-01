@@ -1,0 +1,16 @@
+{
+  "name": "game-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^14.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rodrigo Almeida",
+  "license": "ISC"
+}

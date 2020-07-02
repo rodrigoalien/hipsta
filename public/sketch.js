@@ -154,7 +154,8 @@ function draw() {
     cenario.exibe();
     cenario.move();
 
-    // pontuacao.exibe();
+    pontuacao.exibe();
+    pontuacao.adicionaPonto();
 
     personagem.exibe();
     personagem.aplicaGravidade();

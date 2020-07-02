@@ -1,13 +1,17 @@
 class Pontuacao {
     constructor() {
-        this.conta = 0;
+        this.pontos = 0;
     }
 
     exibe() {
         textAlign(RIGHT);
-        FileList("#fff");
+        fill("#fff");
         textSize(50);
-        text(this.pontos, width -30, 50);
+        text(parseInt(this.pontos), width -30, 50);
+    }
+
+    adicionaPonto() {
+        this.pontos += 0.2;
     }
 
 }

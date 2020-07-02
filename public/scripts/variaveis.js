@@ -5,6 +5,7 @@ let imagemInimigoGrande;
 let imagemInimigoVoador;
 let imagemGameOver;
 
+let jogo;
 let cenario;
 let pontuacao;
 let personagem;

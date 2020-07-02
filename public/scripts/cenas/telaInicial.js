@@ -24,6 +24,7 @@ class TelaInicial {
     }
 
     _menu(){
+        menu.y = height / 7 * 5;
         menu.draw();
     }
 

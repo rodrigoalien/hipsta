@@ -2,11 +2,14 @@ let imagemCenario;
 let imagemPersonagem;
 let imagemInimigo;
 let imagemInimigoGrande;
+let imagemInimigoVoador;
 
 let cenario;
+let pontuacao;
 let personagem;
 let inimigo;
 let inimigoGrande;
+let inimigoVoador;
 
 let somDoJogo;
 let somPulo;  
@@ -92,11 +95,33 @@ const matrizInimigoGrande = [
     [800, 2000],
 ];
 
+const matrizInimigoVoador = [
+    [0,0],
+    [200, 0],
+    [400, 0],
+    [0, 150],
+    [200, 150],
+    [400, 150],
+    [0, 300],
+    [200, 300],
+    [400, 300],
+    [0, 450],
+    [200, 450],
+    [400, 450],
+    [0, 600],
+    [200, 600],
+    [400, 600],
+    [0, 750],
+];
+
+const inimigos = [];
+
 function preload() {
     imagemCenario = loadImage("images/cenario/floresta.png");
     imagemPersonagem = loadImage("images/personagem/correndo.png");
     imagemInimigo = loadImage("images/inimigos/gotinha.png");
     imagemInimigoGrande = loadImage("images/inimigos/troll.png");
+    imagemInimigoVoador = loadImage("images/inimigos/gotinha-voadora.png");
     somDoJogo = loadSound("sounds/trilha_jogo.mp3");
     somPulo = loadSound("sounds/somPulo.mp3");
 }
@@ -104,9 +129,16 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     cenario = new Cenario(imagemCenario, 3);
+    pontuacao = new Pontuacao();
     personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 30, 110, 135, 220, 270);
-    inimigo = new Inimigo(matrizInimigo, imagemInimigo, width, 30, 52, 52, 104, 104);
-    inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width-200, 0, 200, 200, 400, 400);
+    const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width, 30, 52, 52, 104, 104, 10, 200);
+    const inimigoVoador = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width, 200, 100, 75, 200, 150, 10, 2500);
+    const inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 5 , 1500);
+ 
+    inimigos.push(inimigo);
+    inimigos.push(inimigoGrande);
+    inimigos.push(inimigoVoador);
+
     somDoJogo.loop();
     frameRate(40);
 }
@@ -122,17 +154,20 @@ function draw() {
     cenario.exibe();
     cenario.move();
 
+    // pontuacao.exibe();
+
     personagem.exibe();
     personagem.aplicaGravidade();
 
-    inimigo.exibe();
-    inimigo.move();
+    inimigos.forEach(function(inimigo) { // ou (inimigo => {})
+        inimigo.exibe();
+        inimigo.move();
 
-    inimigoGrande.exibe();
-    inimigoGrande.move();
+        if(personagem.estaColidindo(inimigo)){
+            console.log("Colidiu!");
+            noLoop();
+        }
 
-    if(personagem.estaColidindo(inimigo)){
-        console.log("Colidiu!");
-        noLoop();
-    }
+    });
+
 }

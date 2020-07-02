@@ -1,3 +1,5 @@
+let imagemTelaInicial;
+let fonteTelaInicial;
 let imagemCenario;
 let imagemPersonagem;
 let imagemInimigo;
@@ -12,6 +14,11 @@ let personagem;
 let inimigo;
 let inimigoGrande;
 let inimigoVoador;
+
+let cenaAtual = "telaInicial";
+let cenas;
+let telaInicial;
+let menu;
 
 let somDoJogo;
 let somPulo;  

@@ -13,8 +13,6 @@ let inimigo;
 let inimigoGrande;
 let inimigoVoador;
 
-let inimigoAtual = 0;
-
 let somDoJogo;
 let somPulo;  
 

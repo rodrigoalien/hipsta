@@ -17,10 +17,11 @@ let inimigo;
 let inimigoGrande;
 let inimigoVoador;
 
-let cenaAtual = "jogo";
+let cenaAtual = "telaInicial";
 let cenas;
 let telaInicial;
 let menu;
+let fita;
 
 let somDoJogo;
 let somPulo;  

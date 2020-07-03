@@ -1,26 +1,16 @@
 class Jogo {
     constructor(){
         this.indice = 0;
-        this.mapa = [
-            {
-                inimigo: 0,
-                velocidade: 10
-            },
-            {
-                inimigo: 1,
-                velocidade: 10
-            },
-            {
-                inimigo: 2,
-                velocidade: 30
-            }
-        ]
+        this.mapa = fita.mapa;
+        this.vidaMaxima = fita.configuracoes.vidaMaxima;
+        this.vidaInicial = fita.configuracoes.vidaInicial;
+        
     }
 
     setup() {
         cenario = new Cenario(imagemCenario, 3);
         pontuacao = new Pontuacao();
-        vida = new Vida(3, 3);
+        vida = new Vida(this.vidaMaxima, this.vidaInicial);
 
         personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 30, 110, 135, 220, 270);
         const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width, 30, 52, 52, 104, 104, 10);
@@ -63,7 +53,7 @@ class Jogo {
     
         if(inimigoVisivel){
             this.indice++;
-            //inimigo.reaparece();
+            inimigo.reaparece();
             if(this.indice > this.mapa.length -1){
                 this.indice = 0;
             }

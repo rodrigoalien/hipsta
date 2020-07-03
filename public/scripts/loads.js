@@ -1,4 +1,5 @@
 function preload() {
+    fita = loadJSON("fita/fita.json");
     imagemTelaInicial = loadImage("images/assets/telainicial.png");
     imagemCenario = loadImage("images/cenario/floresta.png");
     imagemVida = loadImage("images/assets/coracao.png");

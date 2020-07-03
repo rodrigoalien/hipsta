@@ -1,6 +1,7 @@
 function preload() {
     imagemTelaInicial = loadImage("images/assets/telainicial.png");
     imagemCenario = loadImage("images/cenario/floresta.png");
+    imagemVida = loadImage("images/assets/coracao.png");
     imagemGameOver = loadImage("images/assets/game-over.png");
     imagemPersonagem = loadImage("images/personagem/correndo.png");
     imagemInimigo = loadImage("images/inimigos/gotinha.png");

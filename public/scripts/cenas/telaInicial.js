@@ -20,7 +20,7 @@ class TelaInicial {
         textSize(50);
         text("As Aventuras da", width/2, height/5);
         textSize(150);
-        text("Hipsta", width / 2, height / 5 * 2);
+        text("Hipsta", width / 2, height / 13 * 6);
     }
 
     _menu(){
